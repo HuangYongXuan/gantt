@@ -1,27 +1,17 @@
 <template>
 	<div class="gantt">
 		<div class="table" v-if="config.columns && config.columns.length > 0">
-			<table border="1" :width="300">
-				<thead>
-				<tr>
-					<th v-for="col in config.columns" :key="col.filed">{{ col.name }}</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>1</td>
-					<td>2</td>
-				</tr>
-				</tbody>
-			</table>
+			<mx-table :data="config.data" :columns="config.columns"></mx-table>
 		</div>
 		<div class="gantt-container"></div>
 	</div>
 </template>
 
 <script>
+import MxTable from '@/components/table/MxTable';
 export default {
 	name: 'Gantt',
+	components: {MxTable},
 	props: {
 		config: {
 			type: Object,
